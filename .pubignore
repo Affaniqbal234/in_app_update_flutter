@@ -1,0 +1,4 @@
+example/integration_test/plugin_integration_test.dart
+example/test/widget_test.dart
+test/in_app_update_flutter_method_channel_test.dart
+test/in_app_update_flutter_test.dart
