@@ -2,23 +2,32 @@ import Flutter
 import UIKit
 import XCTest
 
-
 @testable import in_app_update_flutter
-
-// This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
-//
-// See https://developer.apple.com/documentation/xctest for more information about using XCTest.
 
 class RunnerTests: XCTestCase {
 
-  func testGetPlatformVersion() {
+  func testShowStoreUpdateWithoutArgs() {
     let plugin = InAppUpdateFlutterPlugin()
 
-    let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
+    let call = FlutterMethodCall(methodName: "showStoreUpdate", arguments: nil)
 
     let resultExpectation = expectation(description: "result block must be called.")
     plugin.handle(call) { result in
-      XCTAssertEqual(result as! String, "iOS " + UIDevice.current.systemVersion)
+      // Without valid arguments, the plugin should return FlutterMethodNotImplemented
+      XCTAssertEqual(result as? NSObject, FlutterMethodNotImplemented as NSObject)
+      resultExpectation.fulfill()
+    }
+    waitForExpectations(timeout: 1)
+  }
+
+  func testUnknownMethod() {
+    let plugin = InAppUpdateFlutterPlugin()
+
+    let call = FlutterMethodCall(methodName: "unknownMethod", arguments: nil)
+
+    let resultExpectation = expectation(description: "result block must be called.")
+    plugin.handle(call) { result in
+      XCTAssertEqual(result as? NSObject, FlutterMethodNotImplemented as NSObject)
       resultExpectation.fulfill()
     }
     waitForExpectations(timeout: 1)
