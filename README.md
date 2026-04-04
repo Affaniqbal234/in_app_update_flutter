@@ -8,6 +8,7 @@ A Flutter plugin to display an **in-app update prompt for iOS** using the **App 
 
 - ✅ Show in-app update prompt using `SKStoreProductViewController`
 - ✅ Native Swift implementation
+- ✅ Supports both Swift Package Manager (SPM) and CocoaPods
 - ✅ No manual setup required in iOS AppDelegate
 - ✅ Pass dynamic App Store ID via MethodChannel
 - ✅ Works directly from Flutter with a single call
