@@ -1,4 +1,4 @@
-package com.example.in_app_update_flutter
+package tech.axions.in_app_update_flutter
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel

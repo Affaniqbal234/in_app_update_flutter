@@ -1,3 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.in_app_update_flutter">
+  package="tech.axions.in_app_update_flutter">
 </manifest>
