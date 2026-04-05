@@ -96,10 +96,10 @@ class _AndroidUpdateExampleState extends State<AndroidUpdateExample> {
       final info = await _plugin.checkUpdateAndroid();
       setState(() {
         _updateInfo = info;
-        _status = info.updateAvailability ==
-                UpdateAvailabilityAndroid.updateAvailable
-            ? 'Update available! Choose an update type below.'
-            : 'No update available (${info.updateAvailability.name}).';
+        _status =
+            info.updateAvailability == UpdateAvailabilityAndroid.updateAvailable
+                ? 'Update available! Choose an update type below.'
+                : 'No update available (${info.updateAvailability.name}).';
       });
     } catch (e) {
       setState(() {
