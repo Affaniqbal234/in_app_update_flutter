@@ -1,3 +1,15 @@
+## 2.0.0
+
+- Added Android in-app updates support via Google Play's In-App Updates API
+- Added `checkUpdateAndroid()` to retrieve update availability and metadata
+- Added `startImmediateUpdateAndroid()` for full-screen, blocking update flow
+- Added `startFlexibleUpdateAndroid()` for background download update flow
+- Added `completeUpdateAndroid()` to apply a downloaded flexible update
+- Added `installStateStreamAndroid` stream for monitoring flexible update download progress
+- Added `AppUpdateInfoAndroid`, `InstallStateAndroid`, `InstallStatusAndroid`, `UpdateAvailabilityAndroid`, and `UpdateResultAndroid` models
+- Renamed `showUpdate()` to `showUpdateForIos()` (old method is deprecated)
+- Updated Android toolchain to latest stable versions
+
 ## 1.0.4
 
 - Added Swift Package Manager (SPM) support for iOS while maintaining CocoaPods backward compatibility
