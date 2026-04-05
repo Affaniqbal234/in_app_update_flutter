@@ -1,3 +1,4 @@
+import 'package:in_app_update_flutter/in_app_update_flutter.dart';
 import 'package:in_app_update_flutter/src/method_channel/in_app_update_flutter_method_channel.dart';
 import 'package:in_app_update_flutter/src/platform_interface/in_app_update_flutter_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,9 +9,49 @@ class _MockPlatform extends InAppUpdateFlutterPlatform {
   String? lastAppStoreId;
 
   @override
+  Future<void> showUpdateForIos({required String appStoreId}) async {
+    lastAppStoreId = appStoreId;
+  }
+
+  @override
+  // ignore: deprecated_member_use_from_same_package
   Future<void> showUpdate({required String appStoreId}) async {
     lastAppStoreId = appStoreId;
   }
+
+  @override
+  Future<AppUpdateInfoAndroid> checkUpdateAndroid() async {
+    return const AppUpdateInfoAndroid(
+      updateAvailability: UpdateAvailabilityAndroid.updateAvailable,
+      availableVersionCode: 42,
+      updatePriority: 3,
+      clientVersionStalenessDays: 7,
+      isImmediateUpdateAllowed: true,
+      isFlexibleUpdateAllowed: true,
+      installStatus: InstallStatusAndroid.unknown,
+    );
+  }
+
+  @override
+  Future<UpdateResultAndroid> startImmediateUpdateAndroid({
+    bool allowAssetPackDeletion = false,
+  }) async {
+    return UpdateResultAndroid.success;
+  }
+
+  @override
+  Future<UpdateResultAndroid> startFlexibleUpdateAndroid({
+    bool allowAssetPackDeletion = false,
+  }) async {
+    return UpdateResultAndroid.success;
+  }
+
+  @override
+  Future<void> completeUpdateAndroid() async {}
+
+  @override
+  Stream<InstallStateAndroid> get installStateStreamAndroid =>
+      const Stream.empty();
 }
 
 /// Minimal subclass that does NOT override the abstract methods,
@@ -47,23 +88,103 @@ void main() {
     });
 
     group('base class throws UnimplementedError', () {
+      late _UnimplementedPlatform platform;
+
+      setUp(() {
+        platform = _UnimplementedPlatform();
+      });
+
       test('showUpdate throws UnimplementedError', () {
-        final platform = _UnimplementedPlatform();
         expect(
+          // ignore: deprecated_member_use_from_same_package
           () => platform.showUpdate(appStoreId: '123'),
+          throwsA(isA<UnimplementedError>()),
+        );
+      });
+
+      test('showUpdateForIos throws UnimplementedError', () {
+        expect(
+          () => platform.showUpdateForIos(appStoreId: '123'),
+          throwsA(isA<UnimplementedError>()),
+        );
+      });
+
+      test('checkUpdateAndroid throws UnimplementedError', () {
+        expect(
+          () => platform.checkUpdateAndroid(),
+          throwsA(isA<UnimplementedError>()),
+        );
+      });
+
+      test('startImmediateUpdateAndroid throws UnimplementedError', () {
+        expect(
+          () => platform.startImmediateUpdateAndroid(),
+          throwsA(isA<UnimplementedError>()),
+        );
+      });
+
+      test('startFlexibleUpdateAndroid throws UnimplementedError', () {
+        expect(
+          () => platform.startFlexibleUpdateAndroid(),
+          throwsA(isA<UnimplementedError>()),
+        );
+      });
+
+      test('completeUpdateAndroid throws UnimplementedError', () {
+        expect(
+          () => platform.completeUpdateAndroid(),
+          throwsA(isA<UnimplementedError>()),
+        );
+      });
+
+      test('installStateStreamAndroid throws UnimplementedError', () {
+        expect(
+          () => platform.installStateStreamAndroid,
           throwsA(isA<UnimplementedError>()),
         );
       });
     });
 
     group('mock platform delegates', () {
-      test('showUpdate passes appStoreId to mock', () async {
+      test('showUpdateForIos passes appStoreId to mock', () async {
         final mock = _MockPlatform();
         InAppUpdateFlutterPlatform.instance = mock;
 
         await InAppUpdateFlutterPlatform.instance
-            .showUpdate(appStoreId: '544007664');
+            .showUpdateForIos(appStoreId: '544007664');
         expect(mock.lastAppStoreId, '544007664');
+      });
+
+      test('checkUpdateAndroid returns expected info', () async {
+        final mock = _MockPlatform();
+        InAppUpdateFlutterPlatform.instance = mock;
+
+        final info =
+            await InAppUpdateFlutterPlatform.instance.checkUpdateAndroid();
+        expect(
+          info.updateAvailability,
+          UpdateAvailabilityAndroid.updateAvailable,
+        );
+        expect(info.availableVersionCode, 42);
+        expect(info.updatePriority, 3);
+      });
+
+      test('startImmediateUpdateAndroid returns success', () async {
+        final mock = _MockPlatform();
+        InAppUpdateFlutterPlatform.instance = mock;
+
+        final result = await InAppUpdateFlutterPlatform.instance
+            .startImmediateUpdateAndroid();
+        expect(result, UpdateResultAndroid.success);
+      });
+
+      test('startFlexibleUpdateAndroid returns success', () async {
+        final mock = _MockPlatform();
+        InAppUpdateFlutterPlatform.instance = mock;
+
+        final result = await InAppUpdateFlutterPlatform.instance
+            .startFlexibleUpdateAndroid();
+        expect(result, UpdateResultAndroid.success);
       });
     });
   });

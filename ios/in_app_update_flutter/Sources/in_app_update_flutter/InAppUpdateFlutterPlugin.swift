@@ -14,7 +14,7 @@ public class InAppUpdateFlutterPlugin: NSObject, FlutterPlugin, SKStoreProductVi
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    if call.method == "showStoreUpdate",
+    if call.method == "showStoreUpdateIos",
        let args = call.arguments as? [String: Any],
        let appStoreId = args["appStoreId"] as? String {
       flutterResult = result
