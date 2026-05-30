@@ -25,7 +25,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  in_app_update_flutter: ^2.0.0
+  in_app_update_flutter: ^2.0.1
 ```
 
 Then run:

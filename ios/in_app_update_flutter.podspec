@@ -4,14 +4,14 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'in_app_update_flutter'
-  s.version          = '2.0.0'
-  s.summary          = 'Show an in-app update prompt using the native App Store product page.'
+  s.version          = '2.0.1'
+  s.summary          = 'In-app updates for iOS (StoreKit) and Android (Play Core).'
   s.description      = <<-DESC
-A Flutter plugin to show an in-app update prompt using the native App Store product page on iOS, keeping users inside your app.
+A Flutter plugin to prompt users for in-app updates using StoreKit on iOS and the Play Core API on Android, supporting both immediate and flexible update flows.
                        DESC
-  s.homepage         = 'https://github.com/pulkit7724/in_app_update_flutter'
+  s.homepage         = 'https://github.com/axions-org/in_app_update_flutter'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Pulkit' => 'pulkit7724@github.com' }
+  s.author           = { 'Axions' => 'hello@axions.tech' }
   s.source           = { :path => '.' }
   s.source_files = 'in_app_update_flutter/Sources/in_app_update_flutter/**/*.swift'
   s.dependency 'Flutter'
