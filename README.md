@@ -6,6 +6,14 @@ On **iOS**, it presents the App Store product page using `SKStoreProductViewCont
 
 ---
 
+## Screenshots
+
+| iOS | Android Immediate | Android Flexible |
+|-----|------------------|-----------------|
+| ![iOS in-app update](assets/screenshots/ios-in-app-update.png) | ![Android immediate update](assets/screenshots/android-immediate-update.png) | ![Android flexible update](assets/screenshots/android-flexible-update.png) |
+
+---
+
 ## Features
 
 - iOS: Show the App Store update prompt using `SKStoreProductViewController` without navigating users away from the app
@@ -25,7 +33,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  in_app_update_flutter: ^2.0.1
+  in_app_update_flutter: ^2.0.2
 ```
 
 Then run:
