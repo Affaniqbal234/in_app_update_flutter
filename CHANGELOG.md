@@ -1,3 +1,9 @@
+## 2.0.1
+
+- Added pub.dev screenshots for iOS, Android immediate, and Android flexible update flows
+- Updated package description to reflect both iOS (StoreKit) and Android (Play Core) support
+- Updated repository URL and author to Axions
+
 ## 2.0.0
 
 - Added Android in-app updates support via Google Play's In-App Updates API
@@ -18,5 +24,3 @@
 - Enabled PrivacyInfo.xcprivacy resource bundle
 - Fixed iOS unit tests to match actual plugin API
 - Shortened package description to meet pub.dev requirements
-
-## 1.0.3
