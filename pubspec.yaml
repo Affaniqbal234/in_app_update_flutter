@@ -1,15 +1,15 @@
 name: in_app_update_flutter
 description: "A Flutter plugin to prompt users for in-app updates using StoreKit on iOS and Play Core API on Android."
-version: 2.0.1
+version: 2.0.2
 repository: https://github.com/axions-org/in_app_update_flutter.git
-
-screenshots:
-  - description: 'iOS in-app update prompt using the native App Store product page'
-    path: assets/screenshots/ios-in-app-update.png
-  - description: 'Android flexible update flow using the Play Core in-app update API'
-    path: assets/screenshots/android-flexible-update.png
-  - description: 'Android immediate update flow using the Play Core in-app update API'
-    path: assets/screenshots/android-immediate-update.png
+homepage: https://github.com/axions-org/in_app_update_flutter
+issue_tracker: https://github.com/axions-org/in_app_update_flutter/issues
+topics:
+  - in-app-update
+  - app-store
+  - play-store
+  - force-update
+  - soft-update
 
 environment:
   sdk: ^3.6.2
