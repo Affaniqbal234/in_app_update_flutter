@@ -10,7 +10,7 @@ On **iOS**, it presents the App Store product page using `SKStoreProductViewCont
 
 | iOS | Android Immediate | Android Flexible |
 |-----|------------------|-----------------|
-| ![iOS in-app update](assets/screenshots/ios-in-app-update.png) | ![Android immediate update](assets/screenshots/android-immediate-update.png) | ![Android flexible update](assets/screenshots/android-flexible-update.png) |
+| ![iOS in-app update](https://raw.githubusercontent.com/axions-org/in_app_update_flutter/production/assets/screenshots/ios-in-app-update.png) | ![Android immediate update](https://raw.githubusercontent.com/axions-org/in_app_update_flutter/production/assets/screenshots/android-immediate-update.png) | ![Android flexible update](https://raw.githubusercontent.com/axions-org/in_app_update_flutter/production/assets/screenshots/android-flexible-update.png) |
 
 ---
 
@@ -33,7 +33,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  in_app_update_flutter: ^2.0.2
+  in_app_update_flutter: ^2.0.3
 ```
 
 Then run:

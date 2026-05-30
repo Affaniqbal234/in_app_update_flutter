@@ -1,3 +1,7 @@
+## 2.0.3
+
+- Fixed README screenshots not rendering on pub.dev by using absolute GitHub raw URLs
+
 ## 2.0.2
 
 - Added `homepage` and `issue_tracker` fields to pubspec.yaml for pub.dev sidebar links
