@@ -1,8 +1,25 @@
 # in_app_update_flutter
 
-A Flutter plugin for in-app updates on both iOS and Android.
+[![pub package](https://img.shields.io/pub/v/in_app_update_flutter.svg)](https://pub.dev/packages/in_app_update_flutter)
+[![likes](https://img.shields.io/pub/likes/in_app_update_flutter)](https://pub.dev/packages/in_app_update_flutter)
+[![popularity](https://img.shields.io/pub/popularity/in_app_update_flutter)](https://pub.dev/packages/in_app_update_flutter)
+
+A Flutter plugin that provides native in-app update experiences on both iOS and Android using StoreKit on iOS and Google Play In-App Updates on Android.
 
 On **iOS**, it presents the App Store product page using `SKStoreProductViewController` (StoreKit), keeping users inside the app during the update flow. On **Android**, it integrates with Google Play's In-App Updates API to support both immediate (blocking) and flexible (background) update flows.
+
+---
+
+## Platform Support
+
+| Platform | Supported |
+|----------|-----------|
+| Android | ✅ |
+| iOS | ✅ |
+| Web | ❌ |
+| Windows | ❌ |
+| macOS | ❌ |
+| Linux | ❌ |
 
 ---
 
@@ -24,6 +41,28 @@ On **iOS**, it presents the App Store product page using `SKStoreProductViewCont
 - Android: Flexible update flow — background download while the user continues using the app
 - Android: Install state stream for monitoring flexible update download progress
 - Works on Flutter with a simple, unified API
+
+---
+
+## Why in_app_update_flutter?
+
+This package offers a unified Flutter API for native in-app updates on both Android and iOS. It supports Google Play's official In-App Updates API on Android and StoreKit-powered App Store update flows on iOS, allowing users to update without leaving the app experience.
+
+---
+
+## Comparison
+
+| Feature | in_app_update_flutter | in_app_update | upgrader |
+|----------|----------|----------|----------|
+| Android Support | ✅ | ✅ | ✅ |
+| iOS Support | ✅ | ❌ | ✅ |
+| Native Google Play In-App Updates | ✅ | ✅ | ❌ |
+| Android Immediate Updates | ✅ | ✅ | ❌ |
+| Android Flexible Updates | ✅ | ✅ | ❌ |
+| In-App App Store Experience (iOS) | ✅ | ❌ | ❌ |
+| Single Flutter API for Android & iOS | ✅ | ❌ | ✅ |
+
+This package is designed for developers who want native update experiences on both Android and iOS through a unified Flutter API. If you only need Android's Play Core update API, `in_app_update` may be sufficient. If you prefer fully customizable update prompts, `upgrader` may be a better fit.
 
 ---
 
@@ -139,6 +178,30 @@ flutter run
 
 ---
 
+## FAQ
+
+### Does this package support iOS?
+
+Yes. The package supports iOS using StoreKit's `SKStoreProductViewController`, allowing users to view the App Store product page without leaving the app.
+
+### Does this package support Android?
+
+Yes. The package supports Android through Google Play's official In-App Updates API, including both immediate and flexible update flows.
+
+### Does it work in TestFlight builds?
+
+No. StoreKit-based update testing is not supported through TestFlight and should be tested on a real device using a development or App Store build.
+
+### Does it work on Android emulators?
+
+No. Google Play In-App Updates require installation through Google Play and generally cannot be fully tested on standard emulators.
+
+### Can users continue using the app during an update?
+
+Yes. Flexible updates allow users to continue using the app while the update downloads in the background.
+
+---
+
 ## License
 
 [MIT License](LICENSE)
@@ -148,3 +211,6 @@ flutter run
 ## Contributing
 
 Pull requests and feedback are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+If this package helps your project, consider starring the repository on GitHub and liking the package on pub.dev. Community support helps improve visibility and ongoing maintenance.
+
