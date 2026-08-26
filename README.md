@@ -46,9 +46,6 @@ On **iOS**, it presents the App Store product page using `SKStoreProductViewCont
 - Flexible update — lets users keep using the app while the new version downloads in the background
 - Track download progress in real time via a stream to show your own UI
 
-### General
-- One unified Flutter API for both platforms — no platform checks needed in your app code
-
 ---
 
 ## Why in_app_update_flutter?
@@ -65,7 +62,6 @@ This package offers a unified Flutter API for native in-app updates on both Andr
 | Android immediate update (blocking) | ✅ | ✅ | ❌ |
 | Android flexible update (background) | ✅ | ✅ | ❌ |
 | Android install state / progress stream | ✅ | ✅ | ❌ |
-| Unified Flutter API — no platform checks needed | ✅ | ❌ | ❌ |
 
 This package is designed for developers who want native update experiences on both Android and iOS through a unified Flutter API. If you only need Android's Google Play In-App Updates API, `in_app_update` may be sufficient. If you prefer fully customizable update prompts, `upgrader` may be a better fit.
 
